@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teoretisk prøve – ATV HMS (sikker opplæring)</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #000000;
+      --muted: #888888;
+      --primary: #ff0644;
+      --accent: #ff0644;
+      --danger: #ff0644;
+      --ring: rgba(255,6,68,.35);
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 2rem; }
+    header img { max-width: 100%; height: auto; display: block; margin: 0 auto 1rem; }
+    .card { border: 2px solid var(--primary); border-radius: 8px; padding: 1rem; max-width: 800px; margin: auto; background: var(--card); }
+    .q { margin: 1rem 0; }
+    .q h3 { margin-bottom: .5rem; }
+    .opt label { display: block; margin: .25rem 0; }
+    .btn { background: var(--primary); border: none; color: #fff; padding: .75rem 1rem; border-radius: 6px; cursor: pointer; margin-right: .5rem; }
+    .btn.ghost { background: #fff; color: var(--primary); border: 1px solid var(--primary); }
+    .result { font-weight: bold; margin-top: 1rem; }
+    .info label { display:block; margin:.25rem 0; }
+    .info input { width:100%; padding:.5rem; border:1px solid #ccc; border-radius:4px; margin-bottom:.5rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="Finn.no (1).jpg" alt="LEKS Xperience Oslo" />
+  </header>
+
+  <div class="card">
+    <h1>Teoretisk prøve – ATV HMS</h1>
+    <form id="quizForm">
+      <div class="info">
+        <h3>Deltakerinformasjon</h3>
+        <label for="navn">Navn: <span style="color:red">*</span></label>
+        <input type="text" id="navn" name="Navn" required>
+        <label for="adresse">Adresse: <span style="color:red">*</span></label>
+        <input type="text" id="adresse" name="Adresse" required>
+        <label for="epost">E-post: <span style="color:red">*</span></label>
+        <input type="email" id="epost" name="Epost" required>
+        <label for="telefon">Telefon: <span style="color:red">*</span></label>
+        <input type="tel" id="telefon" name="Telefon" required>
+        <label for="firma">Firma (valgfritt):</label>
+        <input type="text" id="firma" name="Firma">
+        <label for="dato">Dato:</label>
+        <input type="text" id="dato" name="Dato" readonly>
+      </div>
+
+      <!-- Spørsmålene beholdes som før -->
+      <!-- ... (Q1-Q13) ... -->
+
+      <button class="btn" type="submit">Send inn</button>
+      <button class="btn ghost" type="button" id="checkBtn">Rett prøve</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <script>
+    // Sett dato automatisk
+    document.getElementById('dato').value = new Date().toLocaleDateString('nb-NO');
+
+    const correctAnswers = {
+      Q1: 'A',
+      Q2: 'A',
+      Q3: 'A',
+      Q4: 'A',
+      Q5: 'A',
+      Q6: 'A',
+      Q7: 'B',
+      Q8: ['A','B','E'],
+      Q9: 'B',
+      Q11: 'A',
+      Q12: 'A',
+      Q13: ['A','B','C']
+    };
+
+    document.getElementById('checkBtn').addEventListener('click', () => {
+      const form = document.getElementById('quizForm');
+      let score = 0;
+      let total = 12;
+
+      // Single answer questions
+      for (let i of ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q9','Q11','Q12']) {
+        const val = form.querySelector(`input[name=${i}]:checked`);
+        if (val && val.value === correctAnswers[i]) {
+          score++;
+        }
+      }
+
+      // Q8 multiple correct
+      const vals8 = [...form.querySelectorAll('input[name=Q8]:checked')].map(c=>c.value);
+      if (vals8.length === correctAnswers.Q8.length && correctAnswers.Q8.every(v=>vals8.includes(v))) {
+        score++;
+      }
+
+      // Q13 multiple correct
+      const vals13 = [...form.querySelectorAll('input[name=Q13]:checked')].map(c=>c.value);
+      if (vals13.length === correctAnswers.Q13.length && correctAnswers.Q13.every(v=>vals13.includes(v))) {
+        score++;
+      }
+
+      const percent = (score/total)*100;
+      const resultDiv = document.getElementById('result');
+      resultDiv.textContent = `Du fikk ${score} av ${total} riktige (${percent.toFixed(0)}%). ` + (percent>=70 ? 'Bestått ✅' : 'Ikke bestått ❌');
+    });
+  </script>
+</body>
+</html>
