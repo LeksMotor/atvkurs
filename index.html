@@ -16,7 +16,7 @@
       --ring: rgba(255,6,68,.35);
     }
     body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 2rem; }
-    header img { max-width: 100%; height: auto; display: block; margin: 0 auto 1rem; }
+    header img { max-width: 250px; display: block; margin: 0 auto 1rem; }
     .card { border: 2px solid var(--primary); border-radius: 8px; padding: 1rem; max-width: 800px; margin: auto; background: var(--card); }
     .q { margin: 1rem 0; }
     .q h3 { margin-bottom: .5rem; }
@@ -30,7 +30,7 @@
 </head>
 <body>
   <header>
-    <img src="Finn.no (1).jpg" alt="LEKS Xperience Oslo" />
+    <img src="leks.jpg" alt="LEKS Xperience Oslo" />
   </header>
 
   <div class="card">
@@ -52,8 +52,115 @@
         <input type="text" id="dato" name="Dato" readonly>
       </div>
 
-      <!-- Spørsmålene beholdes som før -->
-      <!-- ... (Q1-Q13) ... -->
+      <!-- Spørsmålene -->
+      <div class="q">
+        <h3>1. Hvilket førerkort må du ha for å kjøre en ATV registrert som traktor?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q1" value="A" required> A) Traktorførerkort klasse T</label>
+          <label><input type="radio" name="Q1" value="B"> B) Bilførerkort klasse B</label>
+          <label><input type="radio" name="Q1" value="C"> C) Motorsykkelførerkort klasse A</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>2. Hvordan lyder § 8 i Lov om motorferdsel i utmark og vassdrag?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q2" value="A" required> A) Motorferdsel i utmark og vassdrag skal foregå aktsomt og hensynsfullt ...</label>
+          <label><input type="radio" name="Q2" value="B"> B) Motorkjøretøyer kan i utmark ...</label>
+          <label><input type="radio" name="Q2" value="C"> C) Motorferdsel i utmark og vassdrag er fritt tillatt ...</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>3. Veg i utmark som ikke er opparbeidet for kjøring med bil, anses i denne lov som utmark.</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q3" value="A" required> A) Ja</label>
+          <label><input type="radio" name="Q3" value="B"> B) Skogsbilveg regnes som vei</label>
+          <label><input type="radio" name="Q3" value="C"> C) Dette regnes som innmark</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>4. Er snødekt og ubrøytet veg definert som utmark eller innmark?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q4" value="A" required> A) Utmark</label>
+          <label><input type="radio" name="Q4" value="B"> B) Innmark</label>
+          <label><input type="radio" name="Q4" value="C"> C) Veg, uavhengig av snøforhold</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>5. Skal man kjøre på lavgir eller høygir i terreng?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q5" value="A" required> A) Terreng avgjør</label>
+          <label><input type="radio" name="Q5" value="B"> B) Lavgir</label>
+          <label><input type="radio" name="Q5" value="C"> C) Høygir</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>6. Hva bør lufttrykket i dekk være ved kjøring i terreng?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q6" value="A" required> A) 5 pund (psi)</label>
+          <label><input type="radio" name="Q6" value="B"> B) 15 pund (psi)</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>7. Hva slags olje skal brukes på ATV?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q7" value="A" required> A) Spiller ingen rolle</label>
+          <label><input type="radio" name="Q7" value="B"> B) Som beskrevet i instruksjonsbok</label>
+          <label><input type="radio" name="Q7" value="C"> C) To-takts olje</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>8. Hvilke av disse inngår i daglig kontroll av ATV? (velg 3 riktige)</h3>
+        <div class="opt">
+          <label><input type="checkbox" name="Q8" value="A"> A) Sjekk av bremser</label>
+          <label><input type="checkbox" name="Q8" value="B"> B) Sjekk av olje og væskenivå</label>
+          <label><input type="checkbox" name="Q8" value="C"> C) Sjekk av lys og signalhorn</label>
+          <label><input type="checkbox" name="Q8" value="D"> D) Sjekk av fargen på felgene</label>
+          <label><input type="checkbox" name="Q8" value="E"> E) Sjekk av dekk og lufttrykk</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>9. Hva er viktig ved renhold av ATV?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q9" value="A" required> A) At den ser ren og pen ut</label>
+          <label><input type="radio" name="Q9" value="B"> B) At drivverk, understell, radiator og komponenter er rengjort</label>
+          <label><input type="radio" name="Q9" value="C"> C) Vasking utføres av transportleder</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>10. Hvordan får man til effektiv brems med motor?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q11" value="A" required> A) ATV-ens motorbrems</label>
+          <label><input type="radio" name="Q11" value="B"> B) Kun bremser</label>
+          <label><input type="radio" name="Q11" value="C"> C) Kun gass</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>11. Hvilken side av kjøretøyet skal du stå på ved kjøring i skråterreng?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q12" value="A" required> A) På øvre side av kjøretøyet i forhold til hellingen</label>
+          <label><input type="radio" name="Q12" value="B"> B) På nedre side av kjøretøyet i forhold til hellingen</label>
+          <label><input type="radio" name="Q12" value="C"> C) Det har ingen betydning</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>12. Hva er viktig ved kjøring i bratt terreng?</h3>
+        <div class="opt">
+          <label><input type="checkbox" name="Q13" value="A"> A) Kjør alltid rett opp eller rett ned, ikke på skrå</label>
+          <label><input type="checkbox" name="Q13" value="B"> B) Hold lavt gir og jevn fart</label>
+          <label><input type="checkbox" name="Q13" value="C"> C) Flytt kroppsvekten fremover oppover og bakover nedover</label>
+        </div>
+      </div>
 
       <button class="btn" type="submit">Send inn</button>
       <button class="btn ghost" type="button" id="checkBtn">Rett prøve</button>
@@ -86,7 +193,7 @@
       let score = 0;
       let total = 12;
 
-      // Single answer questions
+      // Single answer
       for (let i of ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q9','Q11','Q12']) {
         const val = form.querySelector(`input[name=${i}]:checked`);
         if (val && val.value === correctAnswers[i]) {
