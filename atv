@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Teoretisk prøve – ATV HMS (sikker opplæring)</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --card: #ffffff;
+      --ink: #000000;
+      --muted: #888888;
+      --primary: #ff0644;
+      --accent: #ff0644;
+      --danger: #ff0644;
+      --ring: rgba(255,6,68,.35);
+    }
+    body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 2rem; }
+    header img { max-width: 250px; display: block; margin: 0 auto 1rem; }
+    .card { border: 2px solid var(--primary); border-radius: 8px; padding: 1rem; max-width: 800px; margin: auto; background: var(--card); }
+    .q { margin: 1rem 0; }
+    .q h3 { margin-bottom: .5rem; }
+    .opt label { display: block; margin: .25rem 0; }
+    .btn { background: var(--primary); border: none; color: #fff; padding: .75rem 1rem; border-radius: 6px; cursor: pointer; margin-right: .5rem; }
+    .btn.ghost { background: #fff; color: var(--primary); border: 1px solid var(--primary); }
+    .result { font-weight: bold; margin-top: 1rem; }
+    .info label { display:block; margin:.25rem 0; }
+    .info input { width:100%; padding:.5rem; border:1px solid #ccc; border-radius:4px; margin-bottom:.5rem; }
+  </style>
+</head>
+<body>
+  <!-- Passordbeskyttelse -->
+  <script>
+    (function () {
+      var PASSORD = "leks2025"; // endre om ønskelig
+      var input = prompt("Skriv inn passord for å få tilgang til prøven:");
+      if (input !== PASSORD) {
+        document.write("<h2>Feil passord. Ta kontakt med instruktør.</h2>");
+      }
+    })();
+  </script>
+
+  <header>
+    <img src="leks.jpg" alt="LEKS Xperience Oslo" />
+  </header>
+
+  <div class="card">
+    <h1>Teoretisk prøve – ATV HMS</h1>
+    <form id="quizForm">
+      <div class="info">
+        <h3>Deltakerinformasjon</h3>
+        <label for="navn">Navn: <span style="color:red">*</span></label>
+        <input type="text" id="navn" name="Navn" required>
+        <label for="adresse">Adresse: <span style="color:red">*</span></label>
+        <input type="text" id="adresse" name="Adresse" required>
+        <label for="epost">E-post: <span style="color:red">*</span></label>
+        <input type="email" id="epost" name="Epost" required>
+        <label for="telefon">Telefon: <span style="color:red">*</span></label>
+        <input type="tel" id="telefon" name="Telefon" required>
+        <label for="firma">Firma (valgfritt):</label>
+        <input type="text" id="firma" name="Firma">
+        <label for="dato">Dato:</label>
+        <input type="text" id="dato" name="Dato" readonly>
+      </div>
+
+      <!-- Spørsmål -->
+      <div class="q">
+        <h3>1. Hvilket førerkort må du ha for å kjøre en ATV registrert som traktor?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q1" value="A" required> A) Traktorførerkort klasse T</label>
+          <label><input type="radio" name="Q1" value="B"> B) Bilførerkort klasse B</label>
+          <label><input type="radio" name="Q1" value="C"> C) Motorsykkelførerkort klasse A</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>2. Hvordan lyder § 8 i Lov om motorferdsel i utmark og vassdrag?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q2" value="A" required> A) Motorferdsel i utmark og vassdrag skal foregå aktsomt og hensynsfullt for å unngå skade og ulempe for naturmiljø og mennesker.</label>
+          <label><input type="radio" name="Q2" value="B"> B) Motorkjøretøyer kan i utmark og på islagte vassdrag bare brukes i samsvar med forskrift gitt av departementet.</label>
+          <label><input type="radio" name="Q2" value="C"> C) Motorferdsel i utmark og vassdrag er fritt tillatt dersom det ikke medfører skade på naturmiljøet.</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>3. Veg i utmark som ikke er opparbeidet for kjøring med bil, anses i denne lov som utmark.</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q3" value="A" required> A) Ja</label>
+          <label><input type="radio" name="Q3" value="B"> B) Skogsbilveg regnes som vei og kan kjøres på</label>
+          <label><input type="radio" name="Q3" value="C"> C) Dette regnes som innmark og kan kjøres på</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>4. Er snødekt og ubrøytet veg definert som utmark eller innmark?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q4" value="A" required> A) Utmark</label>
+          <label><input type="radio" name="Q4" value="B"> B) Innmark</label>
+          <label><input type="radio" name="Q4" value="C"> C) Veg, uavhengig av snøforhold</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>5. Skal man kjøre på lavgir eller høygir i terreng?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q5" value="A" required> A) Terreng avgjør hvilket gir som er best anvendelig</label>
+          <label><input type="radio" name="Q5" value="B"> B) Lavgir</label>
+          <label><input type="radio" name="Q5" value="C"> C) Høygir</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>6. Hva bør lufttrykket i dekk være ved kjøring i terreng?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q6" value="A" required> A) 5 pund (psi)</label>
+          <label><input type="radio" name="Q6" value="B"> B) 15 pund (psi)</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>7. Hva slags olje skal brukes på ATV?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q7" value="A" required> A) Spiller ingen rolle, bare det er motorolje</label>
+          <label><input type="radio" name="Q7" value="B"> B) Som beskrevet i instruksjonsbok</label>
+          <label><input type="radio" name="Q7" value="C"> C) To-takts olje</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>8. Hvilke av disse inngår i daglig kontroll av ATV? (velg 3 riktige)</h3>
+        <div class="opt">
+          <label><input type="checkbox" name="Q8" value="A"> A) Sjekk av bremser</label>
+          <label><input type="checkbox" name="Q8" value="B"> B) Sjekk av olje og væskenivå</label>
+          <label><input type="checkbox" name="Q8" value="C"> C) Sjekk av lys og signalhorn</label>
+          <label><input type="checkbox" name="Q8" value="D"> D) Sjekk av fargen på felgene</label>
+          <label><input type="checkbox" name="Q8" value="E"> E) Sjekk av dekk og lufttrykk</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>9. Hva er viktig ved renhold av ATV?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q9" value="A" required> A) At den ser ren og pen ut</label>
+          <label><input type="radio" name="Q9" value="B"> B) At drivverk, understell, radiator og komponenter er rengjort</label>
+          <label><input type="radio" name="Q9" value="C"> C) Vasking utføres av transportleder</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>10. Hvordan får man til effektiv brems med motor?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q10" value="A" required> A) ATV-ens motorbrems</label>
+          <label><input type="radio" name="Q10" value="B"> B) Kun bremser</label>
+          <label><input type="radio" name="Q10" value="C"> C) Kun gass</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>11. Hvilken side av kjøretøyet skal du stå på ved kjøring i skråterreng?</h3>
+        <div class="opt">
+          <label><input type="radio" name="Q11" value="A" required> A) På øvre side av kjøretøyet i forhold til hellingen</label>
+          <label><input type="radio" name="Q11" value="B"> B) På nedre side av kjøretøyet i forhold til hellingen</label>
+          <label><input type="radio" name="Q11" value="C"> C) Det har ingen betydning</label>
+        </div>
+      </div>
+
+      <div class="q">
+        <h3>12. Hva er viktig ved kjøring i bratt terreng?</h3>
+        <div class="opt">
+          <label><input type="checkbox" name="Q12" value="A"> A) Kjør alltid rett opp eller rett ned, ikke på skrå</label>
+          <label><input type="checkbox" name="Q12" value="B"> B) Hold lavt gir og jevn fart</label>
+          <label><input type="checkbox" name="Q12" value="C"> C) Flytt kroppsvekten fremover oppover og bakover nedover</label>
+        </div>
+      </div>
+
+      <button class="btn" type="button" id="checkBtn">Rett prøve</button>
+    </form>
+
+    <div id="result" class="result"></div>
+  </div>
+
+  <!-- jsPDF for PDF -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    // Init EmailJS med din public key
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.emailjs) {
+        emailjs.init("FoKWxs-uisWP7K3HE");
+      }
+
+      // Sett dato
+      var datoInput = document.getElementById('dato');
+      if (datoInput) {
+        datoInput.value = new Date().toLocaleDateString('nb-NO');
+      }
+
+      var correctAnswers = {
+        Q1: 'A',
+        Q2: 'A',
+        Q3: 'A',
+        Q4: 'A',
+        Q5: 'A',
+        Q6: 'A',
+        Q7: 'B',
+        Q8: ['A', 'B', 'E'],
+        Q9: 'B',
+        Q10: 'A',
+        Q11: 'A',
+        Q12: ['A', 'B', 'C']
+      };
+
+      function gradeTest() {
+        var form = document.getElementById('quizForm');
+        if (!form) return;
+
+        var score = 0;
+        var total = 12;
+
+        // Enkelt-svar
+        var single = ['Q1','Q2','Q3','Q4','Q5','Q6','Q7','Q9','Q10','Q11'];
+        for (var i = 0; i < single.length; i++) {
+          var name = single[i];
+          var checked = form.querySelector('input[name=' + name + ']:checked');
+          if (checked && checked.value === correctAnswers[name]) {
+            score++;
+          }
+        }
+
+        // Q8 – flere riktige
+        var checked8 = form.querySelectorAll('input[name=Q8]:checked');
+        var vals8 = [];
+        for (var j = 0; j < checked8.length; j++) {
+          vals8.push(checked8[j].value);
+        }
+        if (vals8.length === correctAnswers.Q8.length) {
+          var ok8 = true;
+          for (var k = 0; k < correctAnswers.Q8.length; k++) {
+            if (vals8.indexOf(correctAnswers.Q8[k]) === -1) {
+              ok8 = false;
+              break;
+            }
+          }
+          if (ok8) score++;
+        }
+
+        // Q12 – alle tre riktige
+        var checked12 = form.querySelectorAll('input[name=Q12]:checked');
+        var vals12 = [];
+        for (var m = 0; m < checked12.length; m++) {
+          vals12.push(checked12[m].value);
+        }
+        if (vals12.length === correctAnswers.Q12.length) {
+          var ok12 = true;
+          for (var n = 0; n < correctAnswers.Q12.length; n++) {
+            if (vals12.indexOf(correctAnswers.Q12[n]) === -1) {
+              ok12 = false;
+              break;
+            }
+          }
+          if (ok12) score++;
+        }
+
+        var percent = (score / total) * 100;
+        var bestatt = percent >= 70;
+
+        var resultDiv = document.getElementById('result');
+        var kortResultat =
+          'Du fikk ' + score + ' av ' + total + ' riktige (' + percent.toFixed(0) + '%). ' +
+          (bestatt ? 'Bestått ✅' : 'Ikke bestått ❌');
+
+        var langtResultat = bestatt
+          ? 'Gratulerer, du har bestått ATV HMS teoretisk prøve.'
+          : 'Dessverre bestod du ikke ATV HMS teoretisk prøve denne gangen.';
+
+        if (resultDiv) {
+          resultDiv.textContent = kortResultat;
+        }
+
+        sendEmail(kortResultat + ' ' + langtResultat);
+        generatePdf(kortResultat, langtResultat);
+      }
+
+      var checkBtn = document.getElementById('checkBtn');
+      if (checkBtn) {
+        checkBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          gradeTest();
+        });
+      }
+    });
+
+    function generatePdf(kortResultat, langtResultat) {
+      if (!window.jspdf || !window.jspdf.jsPDF) return;
+
+      var navn = document.getElementById('navn') ? document.getElementById('navn').value : '';
+      var adresse = document.getElementById('adresse') ? document.getElementById('adresse').value : '';
+      var epost = document.getElementById('epost') ? document.getElementById('epost').value : '';
+      var telefon = document.getElementById('telefon') ? document.getElementById('telefon').value : '';
+      var firma = document.getElementById('firma') ? document.getElementById('firma').value : '';
+      var dato = document.getElementById('dato') ? document.getElementById('dato').value : '';
+
+      var jsPDF = window.jspdf.jsPDF;
+      var doc = new jsPDF();
+
+      var y = 10;
+      doc.setFontSize(16);
+      doc.text('ATV HMS – Teoretisk prøve', 10, y);
+      y += 8;
+
+      doc.setFontSize(12);
+      doc.text('Dato: ' + dato, 10, y); y += 6;
+      doc.text('Navn: ' + navn, 10, y); y += 6;
+      doc.text('Adresse: ' + adresse, 10, y); y += 6;
+      doc.text('E-post: ' + epost, 10, y); y += 6;
+      doc.text('Telefon: ' + telefon, 10, y); y += 6;
+      if (firma) { doc.text('Firma: ' + firma, 10, y); y += 6; }
+
+      y += 4;
+      doc.text('Resultat:', 10, y); y += 6;
+      doc.text(kortResultat, 10, y); y += 6;
+      var wrapped = doc.splitTextToSize(langtResultat, 180);
+      doc.text(wrapped, 10, y);
+
+      var filnavn = 'ATV-HMS-' + (navn || 'deltaker');
+      filnavn = filnavn.replace(/\s+/g, '_') + '.pdf';
+      doc.save(filnavn);
+    }
+
+    function sendEmail(resultText) {
+      if (!window.emailjs || !emailjs.send) return;
+
+      var navn = document.getElementById('navn') ? document.getElementById('navn').value : '';
+      var adresse = document.getElementById('adresse') ? document.getElementById('adresse').value : '';
+      var epost = document.getElementById('epost') ? document.getElementById('epost').value : '';
+      var telefon = document.getElementById('telefon') ? document.getElementById('telefon').value : '';
+      var firma = document.getElementById('firma') ? document.getElementById('firma').value : '';
+      var dato = document.getElementById('dato') ? document.getElementById('dato').value : '';
+
+      emailjs.send("service_k5vs3bi", "template_0gpia8h", {
+        navn: navn,
+        adresse: adresse,
+        epost: epost,
+        telefon: telefon,
+        firma: firma,
+        dato: dato,
+        resultat: resultText,
+        mottaker: "kurs@leksmotor.no"
+      }).then(function () {
+        console.log("Resultatet ble sendt til kurs@leksmotor.no og deltaker.");
+      }).catch(function (err) {
+        console.warn("Kunne ikke sende e-post via EmailJS.", err);
+      });
+    }
+  </script>
+</body>
+</html>
